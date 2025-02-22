@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Akun VPN</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Buat Akun VPN</h2>
+        <form id="vpnForm" action="/create_vpn" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+
+            <label for="sni">SNI/Bug Host:</label>
+            <input type="text" id="sni" name="sni" placeholder="Masukkan SNI/Bug Host" required>
+
+            <label for="protocol">Protocol:</label>
+            <select id="protocol" name="protocol" required>
+                <option value="" disabled selected>Pilih Protocol</option>
+                <optgroup label="VLESS">
+                    <option value="VLESS-WS">VLESS + WS + TLS / No TLS</option>
+                    <option value="VLESS-TCP">VLESS + TCP + TLS / No TLS</option>
+                </optgroup>
+                <optgroup label="VMESS">
+                    <option value="VMESS-WS">VMESS + WS + TLS / No TLS</option>
+                    <option value="VMESS-TCP">VMESS + TCP + TLS / No TLS</option>
+                </optgroup>
+            </select>
+
+            <input type="hidden" id="serverid" name="serverid" value="3">
+            <input type="hidden" id="ssid" name="ssid" value="324543">
+            <input type="hidden" id="captcha" name="captcha">
+
+            <div class="g-recaptcha" data-sitekey="6Lcvb90qAAAAAEv9mSpdybOYbTDtLIICSq5tTQex" data-callback="onCaptchaSuccess"></div>
+
+            <button type="submit" id="submitBtn">Kirim</button>
+        </form>
+        
+        <textarea id="responseBox" rows="10" cols="50" readonly placeholder="Respons akan muncul di sini..."></textarea>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
