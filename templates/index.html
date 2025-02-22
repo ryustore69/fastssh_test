@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <h2>Buat Akun VPN</h2>
-        <form id="vpnForm" action="/create_vpn" method="post">
+        <form id="vpnForm">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" placeholder="Masukkan username" required>
-
+        
             <label for="sni">SNI/Bug Host:</label>
             <input type="text" id="sni" name="sni" placeholder="Masukkan SNI/Bug Host" required>
-
+        
             <label for="protocol">Protocol:</label>
             <select id="protocol" name="protocol" required>
                 <option value="" disabled selected>Pilih Protocol</option>
@@ -31,17 +31,15 @@
                     <option value="VMESS-TCP">VMESS + TCP + TLS / No TLS</option>
                 </optgroup>
             </select>
-
-            <input type="hidden" id="serverid" name="serverid" value="3">
-            <input type="hidden" id="ssid" name="ssid" value="324543">
+        
             <input type="hidden" id="captcha" name="captcha">
-
+        
             <div class="g-recaptcha" data-sitekey="6Lcvb90qAAAAAEv9mSpdybOYbTDtLIICSq5tTQex" data-callback="onCaptchaSuccess"></div>
-
+        
             <button type="submit" id="submitBtn">Kirim</button>
         </form>
         
-        <textarea id="responseBox" rows="10" cols="50" readonly placeholder="Respons akan muncul di sini..."></textarea>
+        <textarea id="responseBox" rows="10" cols="50" readonly placeholder="Respons akan muncul di sini..."></textarea>        
     </div>
 
     <script src="script.js"></script>
